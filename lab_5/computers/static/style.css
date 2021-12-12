@@ -1,0 +1,27 @@
+ body {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+    }
+
+    .table_style {
+        font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif, serif;
+        text-align: left;
+        border-collapse: separate;
+        border-spacing: 5px;
+        background: #ECE9E0;
+        color: #656665;
+        border: 16px solid #ECE9E0;
+        border-radius: 20px;
+
+    }
+
+    .table_style td {
+        background: #F5D7BF;
+        padding: 10px;
+    }
+
+    a {
+        position: absolute;
+    }
+
