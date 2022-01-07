@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+        <style>
+            body{
+               display: flex;
+                flex-direction: column;
+            }
+            .header {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                border: thick double #32a1ce;
+                font-family: Courier New, monospace;
+                font-size: 30px;
+            }
+            .menu{
+                display: flex;
+                flex-direction: row;
+            }
+           .buttons {
+               height: 120px;
+               margin-left: 30px;
+               padding-left: 30px;
+               padding-bottom: 10px;
+                  background: #ffffff;
+                  width: 200px;
+                  box-shadow: 2px 2px 8px rgba(0,0,0,.1);
+                  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                }
+            .buttons h3 {
+              font-size: 16px;
+              color: rgba(0,0,0,.6);
+              margin: 0 0 10px;
+              padding: 0 5px;
+              position: relative;
+            }
+            .buttons h3:after {
+              content: "";
+              width: 6px;
+              height: 6px;
+              background: #32a1ce;
+              position: absolute;
+              right: 5px;
+              bottom: 2px;
+              box-shadow: -8px -8px #32a1ce, 0 -8px #32a1ce, -8px 0 #32a1ce;
+            }
+            .buttons ul {
+              list-style: none;
+              margin: 0;
+              padding: 0;
+              border-top: 1px solid rgba(0,0,0,.3);
+            }
+            .buttons li {margin: 12px 0 0 0px;}
+            .buttons a {
+              text-decoration: none;
+              display: block;
+              font-size: 13px;
+              color: rgba(0,0,0,.6);
+              padding: 5px;
+              position: relative;
+              transition: .3s linear;
+            }
+            .buttons a:after {
+              content:"\f18e";
+                font-family: FontAwesome, cursive;
+              position: absolute;
+              right: 5px;
+              color: white;
+              transition: .2s linear;
+            }
+            .buttons a:hover {
+              background: #32a1ce;
+              color: white;
+            }
+            .content{
+                width: 1000px;
+                display: flex;
+                justify-content: center;
+            }
+
+        </style>
+
+    </head>
+    <body >
+        <div class="header" >
+            <span>Market</span>
+            <span class='user'>
+                {% if request.user.is_authenticated %}
+                    Hello {{ request.user.first_name }},
+                    <a href="{% url "logout" %}"> Logout</a>
+                    {% else %}
+                        Hello {{ request.user.first_name }},
+                        <a href="{% url "register" %}"> Register</a>
+                {% endif %}
+            </span>
+        </div>
+        <div class="menu">
+
+            {% if request.user.is_authenticated %}
+                <ul class="buttons">
+                    <li {% if section == "dashboard" %}class="selected"{% endif %}>
+                    <a href="{% url 'dashboard' %}">My dashboard</a>
+                    </li>
+                    <li {% if section == "images" %}class="selected"{% endif %}>
+                    <a href="{% url 'product_list' %}">Продукты</a>
+                    </li>
+                    <li {% if section == "people" %}class="selected"{% endif %}>
+                        <a href="#">People</a>
+                    </li>
+                </ul>
+            {% endif %}
+
+            <div class="content">
+                {% block content %}
+                {% endblock %}
+            </div>
+    </div>
+    </body>
+</html>

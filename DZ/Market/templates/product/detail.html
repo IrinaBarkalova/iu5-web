@@ -1,0 +1,13 @@
+{% extends "shop.html" %}
+{% load static %}
+{% block title %}
+    {% if store %}{{ store.title }}{% else %}Products{% endif %}
+{% endblock %}
+{% block content %}
+    <div class="product-detail">
+        <h1>{{ product.name }}</h1>
+        <h2><a href="{{ product.store.get_absolute_url }}">{{ product.store }}</a></h2>
+        <p class="price">${{ product.price }}</p>
+        {{ product.description|linebreaks }}
+    </div>
+{% endblock %}

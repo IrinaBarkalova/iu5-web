@@ -1,0 +1,29 @@
+{% extends "shop.html" %}
+{% load static %}
+{% block title %}
+    {% if store %}{{ store.name }}{% else %}Products{% endif %}
+{% endblock %}
+{% block content %}
+    <div id="sidebar">
+        <h3>Stores</h3>
+        <ul>
+            <li {% if not store %}class="selected"{% endif %}>
+                <a href="{% url "product_list" %}">All</a>
+            </li>
+            {% for c in stores %}
+                <li {% if store.slug == c.slug %}class="selected"{% endif %}>
+                    <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div id="main" class="product-list">
+        <h1>{% if store %}{{ store.name }}{% else %}Products{% endif %}</h1>
+        {% for product in products %}
+            <div class="item">
+                <a href="{{ product.get_absolute_url }}">{{ product.name }}</a><br>
+                ${{ product.price }}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
