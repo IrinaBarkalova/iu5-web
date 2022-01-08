@@ -1,0 +1,76 @@
+ body {
+     display: flex;
+     flex-direction: column;
+ }
+ .header {
+     display: flex;
+     flex-direction: row;
+     justify-content: space-around;
+     border: thick double #32a1ce;
+     font-family: Courier New, monospace;
+     font-size: 30px;
+ }
+ .items_shop {
+     display: flex;
+     flex-direction: row;
+
+ }
+ .product-detail{
+     background-color: #32a1ce;
+ }
+.sidebar {
+    margin-top: 30px;
+    height: 150px;
+    margin-left: 30px;
+    padding: 10px 30px;
+    background: #ffffff;
+    width: 200px;
+    box-shadow: 2px 2px 8px rgba(0,0,0,.1);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+ .sidebar h3 {
+     font-size: 16px;
+     color: rgba(0,0,0,.6);
+     margin: 0 0 10px;
+     padding: 0 5px;
+     position: relative;
+ }
+ .sidebar h3:after {
+     content: "";
+     width: 6px;
+     height: 6px;
+     background: #32a1ce;
+     position: absolute;
+     right: 5px;
+     bottom: 2px;
+     box-shadow: -8px -8px #32a1ce, 0 -8px #32a1ce, -8px 0 #32a1ce;
+ }
+ .sidebar ul {
+     list-style: none;
+     margin: 0;
+     padding: 0;
+     border-top: 1px solid rgba(0,0,0,.3);
+ }
+ .sidebar li {margin: 12px 0 0 0;}
+ .sidebar a {
+     text-decoration: none;
+     display: block;
+     font-size: 13px;
+     color: rgba(0,0,0,.6);
+     padding: 5px;
+     position: relative;
+     transition: .3s linear;
+ }
+ .sidebar a:after {
+     content:"\f18e";
+     font-family: FontAwesome, cursive;
+     position: absolute;
+     right: 5px;
+     color: white;
+     transition: .2s linear;
+ }
+ .sidebar a:hover {
+     background: #32a1ce;
+     color: white;
+ }
+

@@ -27,7 +27,7 @@ class Product(models.Model):
     name = models.CharField(max_length=50, db_index=True)
     description = models.TextField()
     price = models.FloatField()
-    store = models.ManyToManyField(Store)
+    store = models.ManyToManyField(Store, related_name='store')
     slug = models.SlugField(max_length=200, db_index=True)
 
     class Meta:
