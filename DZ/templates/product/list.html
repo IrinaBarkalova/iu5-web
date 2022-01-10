@@ -18,14 +18,15 @@
                 {% endfor %}
             </ul>
         </div>
+
         <div class="product-list">
-            <h1>{% if store %}{{ store.name }}{% else %}All Products{% endif %}</h1>
-            {% for product in products %}
-                <div class="item">
-                    <a href="{{ product.get_absolute_url }}">{{ product.name }}</a><br>
-                    ${{ product.price }}
-                </div>
-            {% endfor %}
+            <h3>{% if store %}{{ store.name }}{% else %}All Products{% endif %}</h3>
+                {% for product in products %}
+                    <div class="item">
+                        <a href="{{ product.get_absolute_url }}">{{ product.name }}</a><br>
+                        ${{ product.price }}
+                    </div>
+                {% endfor %}
         </div>
     </div>
 {% endblock %}

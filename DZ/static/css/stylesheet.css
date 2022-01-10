@@ -15,10 +15,8 @@
      flex-direction: row;
 
  }
- .product-detail{
-     background-color: #32a1ce;
- }
-.sidebar {
+
+.sidebar, .product-list {
     margin-top: 30px;
     height: 150px;
     margin-left: 30px;
@@ -28,14 +26,14 @@
     box-shadow: 2px 2px 8px rgba(0,0,0,.1);
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
- .sidebar h3 {
+ .sidebar, .product-list h3 {
      font-size: 16px;
      color: rgba(0,0,0,.6);
      margin: 0 0 10px;
      padding: 0 5px;
      position: relative;
  }
- .sidebar h3:after {
+ .sidebar, .product-list h3:after {
      content: "";
      width: 6px;
      height: 6px;
@@ -45,14 +43,14 @@
      bottom: 2px;
      box-shadow: -8px -8px #32a1ce, 0 -8px #32a1ce, -8px 0 #32a1ce;
  }
- .sidebar ul {
+ .sidebar, .product-list ul {
      list-style: none;
      margin: 0;
      padding: 0;
      border-top: 1px solid rgba(0,0,0,.3);
  }
- .sidebar li {margin: 12px 0 0 0;}
- .sidebar a {
+ .sidebar, .product-list li {margin: 12px 0 0 0;}
+ .sidebar, .product-list a {
      text-decoration: none;
      display: block;
      font-size: 13px;
@@ -61,7 +59,7 @@
      position: relative;
      transition: .3s linear;
  }
- .sidebar a:after {
+ .sidebar, .product-list a:after {
      content:"\f18e";
      font-family: FontAwesome, cursive;
      position: absolute;
@@ -69,7 +67,7 @@
      color: white;
      transition: .2s linear;
  }
- .sidebar a:hover {
+ .sidebar, .product-list a:hover {
      background: #32a1ce;
      color: white;
  }

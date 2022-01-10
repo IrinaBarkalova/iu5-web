@@ -6,14 +6,12 @@ from django.contrib.auth.views import LoginView, logout_then_login
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('login/', LoginView.as_view(), name="login"),
+    path('', LoginView.as_view(), name="login"),
     path('logout/', logout_then_login, name='logout'),
     path('/', dashboard, name='dashboard'),
     path('register/', register, name='register'),
     path('product_list/', product_list, name='product_list'),
     path('<store_slug>/', product_list, name='product_list_by_store'),
     path('<id>/<slug>', product_detail, name='product_detail'),
-    # url(r'^(?P<store_slug>[-\w]+)/$', product_list, name='product_list_by_store'),
-    # url(r'^(?P<id>\d+)/(?P<slug>[-\w]+)/$', product_detail, name='product_detail'),
 
 ]
